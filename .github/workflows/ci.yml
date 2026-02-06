@@ -38,21 +38,21 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to render
-        uses: JorgeLNJunior/render-deploy@v1.4.7
-        with:
-          service_id: ${{ secrets.BE_SERVICE }}
-          api_key: ${{ secrets.MY_RENDER_API_KEY }}
-          wait_deploy: true
+    - name: Deploy to render
+      uses: JorgeLNJunior/render-deploy@v1.4.7
+      with:
+        service_id: ${{ secrets.BE_SERVICE }}
+        api_key: ${{ secrets.MY_RENDER_API_KEY }}
+        wait_deploy: true
 
   deploy-fe:
     needs: deploy-be
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to render
-        uses: JorgeLNJunior/render-deploy@v1.4.7
-        with:
-          service_id: ${{ secrets.FE_SERVICE }}
-          api_key: ${{ secrets.MY_RENDER_API_KEY }}
-          wait_deploy: true
+    - name: Deploy to render
+      uses: JorgeLNJunior/render-deploy@v1.4.7
+      with:
+        service_id: ${{ secrets.FE_SERVICE }}
+        api_key: ${{ secrets.MY_RENDER_API_KEY }}
+        wait_deploy: true
